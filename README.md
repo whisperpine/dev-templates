@@ -9,11 +9,11 @@ and tailored for personal preferences.
 ## Get started
 
 ```sh
-# To initialize (where `${ENV}` is listed in the table below):
-nix flake init --template "https://github.com/whisperpine/dev-templates/*#${ENV}"
+# To initialize (where `ENV` is listed in the table below):
+nix flake init --template github:whisperpine/dev-templates#ENV
 
 # Here's an example (for the rust template):
-nix flake init --template "https://github.com/whisperpine/dev-templates/*#rust"
+nix flake init --template github:whisperpine/dev-templates#rust
 ```
 
 ## How to use the templates
