@@ -28,5 +28,10 @@ you can use the provided shell in two ways:
 
 ## Available templates
 
+```sh
+# list all the templates (notice items under "templates"):
+nix flake show github:whisperpine/dev-templates
+```
+
 - [empty](./empty/): a good start point for any projects.
 - [rust](./rust/): rust toolchain and commonly used tools.

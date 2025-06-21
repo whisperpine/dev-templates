@@ -34,8 +34,7 @@
           };
         }
       );
-    }
-    // {
+
       templates = rec {
         default = empty;
 
@@ -47,6 +46,11 @@
         rust = {
           path = ./rust;
           description = "Rust development environment";
+        };
+
+        python = {
+          path = ./python;
+          description = "Python development environment";
         };
       };
     };
