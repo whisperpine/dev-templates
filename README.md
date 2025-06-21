@@ -14,6 +14,8 @@ nix flake init --template github:whisperpine/dev-templates#ENV
 
 # Here's an example (for the rust template):
 nix flake init --template github:whisperpine/dev-templates#rust
+# To ensure it's up to date, use `--refresh`:
+nix flake init --refresh --template github:whisperpine/dev-templates#rust
 ```
 
 ## How to use the templates
@@ -34,4 +36,9 @@ nix flake show github:whisperpine/dev-templates
 ```
 
 - [empty](./empty/): a good start point for any projects.
-- [rust](./rust/): rust toolchain and commonly used tools.
+- [rust](./rust/): manage rust toolchain, targets and others tools.\
+  It supersedes the functions of `rustup` in a declarative way.
+- [python](./python/): python virtual environment managed by [uv](https://github.com/astral-sh/uv).\
+  Notice the shellHook "source .venv/bin/activate", which is essential.
+- [web](./web/): web or nodejs dev environment managed by [bun](https://github.com/oven-sh/bun).\
+  Notice [web/.envrc](./web/.envrc) extends `PATH` environment variable.
