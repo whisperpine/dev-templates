@@ -29,3 +29,4 @@ you can use the provided shell in two ways:
 ## Available templates
 
 - [empty](./empty/): a good start point for any projects.
+- [rust](./rust/): rust toolchain and commonly used tools.

@@ -43,6 +43,11 @@
           path = ./empty;
           description = "Empty development environment";
         };
+
+        rust = {
+          path = ./rust;
+          description = "Rust development environment";
+        };
       };
     };
 }
