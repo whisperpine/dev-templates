@@ -52,6 +52,11 @@
           path = ./python;
           description = "Python development environment";
         };
+
+        web = {
+          path = ./web;
+          description = "Web frontend development environment";
+        };
       };
     };
 }
