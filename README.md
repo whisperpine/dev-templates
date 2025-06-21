@@ -1,6 +1,6 @@
 # Nix flake templates for dev environments
 
-Use nix flake to declare and lock in dev environments
+Use nix flake to make dev environments reproducible
 (e.g. tools, environment variables, init scripts).
 
 This repository is heavily inspired by [the-nix-way/dev-templates](https://github.com/the-nix-way/dev-templates)
