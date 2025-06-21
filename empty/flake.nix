@@ -1,5 +1,5 @@
 {
-  description = "Ready-made templates for easily creating flake-driven environments";
+  description = "A Nix-flake-based development environment";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   outputs =
     inputs:
@@ -21,28 +21,23 @@
         { pkgs }:
         {
           default = pkgs.mkShell {
+            # The Nix packages provided in the environment.
             packages = with pkgs; [
-              husky
+              # For example:
               typos
             ];
+            # Set any environment variables for your dev shell.
+            env = {
+              # For example:
+              GREETING = "Hello, Nix!";
+            };
+            # Shell which will be executed any time the environment is activated.
             shellHook = ''
-              # install git hook managed by husky
-              if [ ! -e "./.husky/_" ]; then
-                husky install
-              fi
+              # For example:
+              echo "### nix develop environment is activated ###"
             '';
           };
         }
       );
-    }
-    // {
-      templates = rec {
-        default = empty;
-
-        empty = {
-          path = ./empty;
-          description = "Empty development environment";
-        };
-      };
     };
 }

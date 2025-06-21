@@ -2,6 +2,7 @@
 
 Use nix flake to declare and lock in dev environments
 (e.g. tools, environment variables, init scripts).
+
 This repository is heavily inspired by [the-nix-way/dev-templates](https://github.com/the-nix-way/dev-templates)
 and tailored for personal preferences.
 
@@ -24,3 +25,7 @@ you can use the provided shell in two ways:
   you can initialize the environment by running `direnv allow`.
 - If you don't have [nix-direnv](https://github.com/nix-community/nix-direnv) installed,
   you can run `nix develop` to enter the nix-defined shell environment.
+
+## Available templates
+
+- [empty](./empty/): a good start point for any projects.
