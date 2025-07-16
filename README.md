@@ -6,6 +6,15 @@ Use nix flake to make dev environments reproducible
 This repository is heavily inspired by [the-nix-way/dev-templates](https://github.com/the-nix-way/dev-templates)
 and tailored for personal preferences.
 
+## Prerequisites
+
+Install [Nix](https://nixos.org/download/)
+and enable the following experimental features:
+
+```nix
+nix.settings.experimental-features = [ "nix-command" "flakes" ];
+```
+
 ## Get started
 
 ```sh
