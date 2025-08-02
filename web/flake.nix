@@ -22,7 +22,9 @@
         {
           default = pkgs.mkShell {
             packages = with pkgs; [
+              biome # linting js and ts
               bun # all-in-one toolkit like nodejs
+              just # just a command runner
             ];
             shellHook = ''
               bun install
