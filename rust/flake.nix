@@ -59,9 +59,12 @@
           default = pkgs.mkShell {
             packages = with pkgs; [
               rustToolchain
-              cargo-edit # managing cargo dependencies
               cargo-deny # linting dependencies
+              cargo-edit # managing cargo dependencies
+              cargo-nextest # next-generation test runner
+              cargo-llvm-cov # LLVM source-based code coverage
               bacon # background code checker
+              just # just a command runner
             ];
           };
         }
