@@ -23,7 +23,7 @@
           default = pkgs.mkShell {
             packages = with pkgs; [
               python313
-              uv
+              uv # python package and project manager
             ];
             shellHook = ''
               uv sync

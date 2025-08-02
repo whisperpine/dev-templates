@@ -21,7 +21,9 @@
         { pkgs }:
         {
           default = pkgs.mkShell {
-            packages = with pkgs; [ bun ];
+            packages = with pkgs; [
+              bun # all-in-one toolkit like nodejs
+            ];
             shellHook = ''
               bun install
             '';
