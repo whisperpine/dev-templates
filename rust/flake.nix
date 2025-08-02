@@ -44,11 +44,17 @@
             rust = prev.rust-bin;
           in
           # rust.stable.latest.default.override {
-          #   extensions = [ "rust-src" ];
+          #   extensions = [
+          #     "rust-src"
+          #     "llvm-tools" # required by cargo-llvm-cov
+          #   ];
           #   targets = [ ];
           # };
           rust.nightly."2025-06-20".default.override {
-            extensions = [ "rust-src" ];
+            extensions = [
+              "rust-src"
+              "llvm-tools" # required by cargo-llvm-cov
+            ];
             targets = [ ];
           };
       };
