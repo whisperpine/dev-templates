@@ -24,6 +24,7 @@
             packages = with pkgs; [
               python313
               uv # python package and project manager
+              just # just a command runner
             ];
             shellHook = ''
               uv sync
