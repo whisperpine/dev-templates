@@ -21,17 +21,17 @@
         { pkgs }:
         {
           default = pkgs.mkShell {
-            # The Nix packages provided in the environment.
+            # The Nix packages installed in the dev environment.
             packages = with pkgs; [
               # For example:
               typos
             ];
-            # Set any environment variables for your dev shell.
+            # Environment variables taking effect in the dev environment.
             env = {
               # For example:
               GREETING = "Hello, Nix!";
             };
-            # Shell which will be executed any time the environment is activated.
+            # The shell script executed when the environment is activated.
             shellHook = ''
               # For example:
               echo "### nix develop environment is activated ###"
