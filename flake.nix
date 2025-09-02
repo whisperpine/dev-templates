@@ -22,8 +22,9 @@
         {
           default = pkgs.mkShell {
             packages = with pkgs; [
-              husky
-              typos
+              husky # managing git hooks
+              typos # check misspelling
+              cocogitto # conventional commit toolkit
             ];
             shellHook = ''
               # install git hook managed by husky
