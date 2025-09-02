@@ -1,3 +1,5 @@
+tag_prefix = "v"
+
 scopes = [
   # general
   "deps",
@@ -18,3 +20,6 @@ revert = { changelog_title = "Revert" }
 perf = { changelog_title = "Performance" }
 test = { changelog_title = "Testing" }
 ci = { changelog_title = "CI/CD" }
+# disabled types
+build = {}
+style = {}
