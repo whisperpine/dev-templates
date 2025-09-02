@@ -8,7 +8,7 @@
 
 set -e
 
-# Check the last commit message.
+# Check the latest commit message.
 if ! cog check HEAD..HEAD >/dev/null 2>&1; then
   echo "Error: Commit message violates conventional commits."
   cog check HEAD..HEAD
