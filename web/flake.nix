@@ -21,11 +21,13 @@
         { pkgs }:
         {
           default = pkgs.mkShell {
+            # The Nix packages installed in the dev environment.
             packages = with pkgs; [
               biome # linting js and ts
               bun # all-in-one toolkit like nodejs
               just # just a command runner
             ];
+            # The shell script executed when the environment is activated.
             shellHook = ''
               bun install
             '';

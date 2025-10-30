@@ -21,11 +21,13 @@
         { pkgs }:
         {
           default = pkgs.mkShell {
+            # The Nix packages installed in the dev environment.
             packages = with pkgs; [
               python313
               uv # python package and project manager
               just # just a command runner
             ];
+            # The shell script executed when the environment is activated.
             shellHook = ''
               uv sync
               source .venv/bin/activate
