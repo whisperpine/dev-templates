@@ -1,0 +1,34 @@
+{
+  "$schema": "https://biomejs.dev/schemas/latest/schema.json",
+  "formatter": { "indentStyle": "space" },
+  "files": {
+    "includes": [] // Note: add file paths here.
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "useNamingConvention": {
+          "level": "warn",
+          "options": {
+            "strictCase": true,
+            "conventions": [
+              {
+                "selector": { "kind": "function" },
+                "formats": ["camelCase"]
+              }
+            ]
+          }
+        },
+        "useGraphqlNamingConvention": "warn",
+        "useFilenamingConvention": "error"
+      }
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  }
+}
