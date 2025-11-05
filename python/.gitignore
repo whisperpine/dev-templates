@@ -1,0 +1,40 @@
+# Direnv
+/.direnv
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*~
+*.bak
+.vscode/
+.idea/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv
+
+# Pytest
+.pytest_cache
