@@ -15,17 +15,17 @@ jobs:
       - name: Run end-to-end tests in nix environment
         shell: nix shell nixpkgs#direnv --quiet --command bash {0}
         run: |
-          temp_dir="end-to-end"
           # Create a directory for testing.
+          temp_dir="end-to-end"
           mkdir "$temp_dir" && cd "$temp_dir"
           # Download the template files.
           echo "# ----- nix flake init ----- #"
           nix flake init --template github:whisperpine/dev-templates#empty
           # Track the "flake.nix" file by git.
-          git add "$temp_dir/flake.nix"
+          git -C "$GITHUB_WORKSPACE" add "$temp_dir/flake.nix"
           # Test the "nix develop" command.
           echo "# ----- nix develop ----- #"
-          nix develop
+          nix develop --quiet
           just --version # test if "just" package is installed
           exit
           # Test the "direnv allow" command.
