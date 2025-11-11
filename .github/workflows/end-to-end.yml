@@ -21,9 +21,9 @@ jobs:
           mkdir "$temp_dir" && cd "$temp_dir"
           # Download the template files.
           nix flake init --template github:whisperpine/dev-templates#empty
-          # Test the "nix develop" command.
-          nix develop && exit
           # Track the "flake.nix" file by git.
           git -C "$GITHUB_WORKSPACE" add "$temp_dir/flake.nix"
+          # Test the "nix develop" command.
+          nix develop && exit
           # Test the "direnv allow" command.
           direnv allow . && eval "$(direnv hook bash)"
