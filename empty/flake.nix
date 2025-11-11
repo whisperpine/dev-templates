@@ -23,7 +23,7 @@
           default = pkgs.mkShell {
             # The Nix packages installed in the dev environment.
             packages = with pkgs; [
-              typos # check misspelling
+              just # just a command runner
             ];
             # The shell script executed when the environment is activated.
             shellHook = ''
