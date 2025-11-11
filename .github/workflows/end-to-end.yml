@@ -6,26 +6,11 @@ on:
     branches: ["main"]
 
 jobs:
-  empty:
+  template-empty:
     runs-on: ubuntu-latest
-    name: test the empty template
     steps:
       - uses: actions/checkout@v5
-      - uses: cachix/install-nix-action@v31
       - name: Run end-to-end tests in nix environment
-        shell: nix shell nixpkgs#direnv --quiet --command bash {0}
-        run: |
-          # Create a directory for testing.
-          temp_dir="end-to-end"
-          mkdir "$temp_dir" && cd "$temp_dir"
-          # Download the template files.
-          echo "# ----- nix flake init ----- #"
-          nix flake init --template github:whisperpine/dev-templates#empty
-          # Track the "flake.nix" file by git.
-          git -C "$GITHUB_WORKSPACE" add "$temp_dir/flake.nix"
-          # Test the "nix develop" command.
-          echo "# ----- nix develop ----- #"
-          nix develop --quiet
-          # Test the "direnv allow" command.
-          echo "# ----- direnv allow ----- #"
-          direnv allow . && eval "$(direnv hook bash)"
+        uses: ./.github/actions/end-to-end
+        with:
+          name: empty
