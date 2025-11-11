@@ -15,7 +15,7 @@ jobs:
       - name: Run typos command
         shell: nix shell nixpkgs#direnv --quiet --command bash {0}
         run: |
-          mkdir -p dev-template-test && cd dev-template-test
           nix flake init --template github:whisperpine/dev-templates#empty
           nix develop && exit # test "nix develop" command
-          direnv allow . && eval "$(direnv hook bash)" # test "direnv"
+          git add -A && direnv allow . # track files and allow the dir
+          eval "$(direnv hook bash)" # test "direnv"
