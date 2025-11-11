@@ -45,9 +45,10 @@ nix flake show github:whisperpine/dev-templates
 ```
 
 - [empty](./empty/): a good start point for any projects.
-- [rust](./rust/): manage rust toolchain, targets and others tools.\
-  It supersedes the functions of `rustup` in a declarative way.
+- [golang](./golang/): manage golang toolchain with configurable versions.
 - [python](./python/): python virtual environment managed by [uv](https://github.com/astral-sh/uv).\
   Notice the shellHook "source .venv/bin/activate", which is essential.
+- [rust](./rust/): manage rust toolchain, targets and others tools.\
+  It supersedes the functions of `rustup` in a declarative way.
 - [web](./web/): web or nodejs dev environment managed by [bun](https://github.com/oven-sh/bun).\
   Notice [web/.envrc](./web/.envrc) extends `PATH` environment variable.
