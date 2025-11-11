@@ -12,10 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: cachix/install-nix-action@v31
-      - name: Run typos command
+      - name: Run end-to-end tests in nix environment
         shell: nix shell nixpkgs#direnv --quiet --command bash {0}
         run: |
+          mkdir end-to-end && cd end-to-end
           nix flake init --template github:whisperpine/dev-templates#empty
           nix develop && exit # test "nix develop" command
-          git add -A && direnv allow . # track files and allow the dir
+          git add . && direnv allow . # track files and allow the dir
           eval "$(direnv hook bash)" # test "direnv"
