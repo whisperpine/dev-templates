@@ -1,0 +1,28 @@
+name: End-to-end Test
+description: End-to-end test for templates
+inputs:
+  name:
+    description: The directory name of the template
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - uses: cachix/install-nix-action@v31
+    - name: Run end-to-end tests in nix environment
+      shell: nix shell nixpkgs#direnv --quiet --command bash {0}
+      run: |
+        # Create a directory for testing.
+        temp_dir="end-to-end"
+        mkdir "$temp_dir" && cd "$temp_dir"
+        # Download the template files.
+        echo "# ----- nix flake init ----- #"
+        nix flake init --template github:whisperpine/dev-templates#${{ inputs.name }}
+        # Track the "flake.nix" file by git.
+        git -C "$GITHUB_WORKSPACE" add "$temp_dir/flake.nix"
+        # Test the "nix develop" command.
+        echo "# ----- nix develop ----- #"
+        nix develop --quiet
+        # Test the "direnv allow" command.
+        echo "# ----- direnv allow ----- #"
+        direnv allow . && eval "$(direnv hook bash)"
