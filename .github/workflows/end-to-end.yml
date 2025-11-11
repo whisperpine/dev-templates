@@ -1,0 +1,21 @@
+name: End to End
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+jobs:
+  empty:
+    runs-on: ubuntu-latest
+    name: test the empty template
+    steps:
+      - uses: actions/checkout@v5
+      - uses: cachix/install-nix-action@v31
+      - name: Run typos command
+        shell: nix shell nixpkgs#direnv --quiet --command bash {0}
+        run: |
+          mkdir -p dev-template-test && cd dev-template-test
+          nix flake init --template github:whisperpine/dev-templates#empty
+          nix develop && exit # test "nix develop" command
+          direnv allow . && eval "$(direnv hook bash)" # test "direnv"
