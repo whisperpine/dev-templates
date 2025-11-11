@@ -17,7 +17,7 @@ runs:
         mkdir "$temp_dir" && cd "$temp_dir"
         # Download the template files.
         echo "# ----- nix flake init ----- #"
-        nix flake init --template github:whisperpine/dev-templates#{{ inputs.name }}
+        nix flake init --template github:whisperpine/dev-templates#${{ inputs.name }}
         # Track the "flake.nix" file by git.
         git -C "$GITHUB_WORKSPACE" add "$temp_dir/flake.nix"
         # Test the "nix develop" command.
