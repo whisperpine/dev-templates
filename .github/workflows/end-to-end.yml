@@ -18,5 +18,5 @@ jobs:
           mkdir end-to-end && cd end-to-end
           nix flake init --template github:whisperpine/dev-templates#empty
           nix develop && exit # test "nix develop" command
-          git add . && direnv allow . # track files and allow the dir
+          git add -A && direnv allow . # track files and allow the dir
           eval "$(direnv hook bash)" # test "direnv"
