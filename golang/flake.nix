@@ -33,7 +33,7 @@
             packages = with pkgs; [
               go # go (version is specified by overlay)
               gotools # goimports, godoc, etc.
-              typos # check misspelling
+              just # just a command runner
             ];
             # The shell script executed when the environment is activated.
             shellHook = ''
