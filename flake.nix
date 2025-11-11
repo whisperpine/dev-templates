@@ -26,7 +26,6 @@
               husky # managing git hooks
               typos # check misspelling
               cocogitto # conventional commit toolkit
-              just # just a command runner
             ];
             # The shell script executed when the environment is activated.
             shellHook = ''
