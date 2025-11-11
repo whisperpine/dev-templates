@@ -14,3 +14,39 @@ jobs:
         uses: ./.github/actions/end-to-end
         with:
           name: empty
+
+  template-golang:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Run end-to-end tests in nix environment
+        uses: ./.github/actions/end-to-end
+        with:
+          name: golang
+
+  template-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Run end-to-end tests in nix environment
+        uses: ./.github/actions/end-to-end
+        with:
+          name: python
+
+  template-rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Run end-to-end tests in nix environment
+        uses: ./.github/actions/end-to-end
+        with:
+          name: rust
+
+  template-web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Run end-to-end tests in nix environment
+        uses: ./.github/actions/end-to-end
+        with:
+          name: web
