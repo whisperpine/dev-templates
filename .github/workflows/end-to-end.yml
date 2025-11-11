@@ -23,6 +23,11 @@ jobs:
           nix flake init --template github:whisperpine/dev-templates#empty
           # Track the "flake.nix" file by git.
           git -C "$GITHUB_WORKSPACE" add "$temp_dir/flake.nix"
+          # Test the "nix develop" command.
+          echo "# ----- nix develop ----- #"
+          nix develop --quiet
+          # just --version # test if "just" package is installed
+          exit
           # Test the "direnv allow" command.
           echo "# ----- direnv allow ----- #"
           direnv allow . && eval "$(direnv hook bash)"
