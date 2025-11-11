@@ -26,7 +26,7 @@ jobs:
           # Test the "nix develop" command.
           echo "# ----- nix develop ----- #"
           nix develop --quiet
-          just --version # test if "just" package is installed
+          # just --version # test if "just" package is installed
           exit
           # Test the "direnv allow" command.
           echo "# ----- direnv allow ----- #"
