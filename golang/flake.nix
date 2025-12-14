@@ -28,7 +28,7 @@
       devShells = forEachSupportedSystem (
         { pkgs }:
         {
-          default = pkgs.mkShell {
+          default = pkgs.mkShellNoCC {
             # The Nix packages installed in the dev environment.
             packages = with pkgs; [
               go # go (version is specified by overlay)
