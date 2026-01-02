@@ -9,7 +9,7 @@ jobs:
   template-empty:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Run end-to-end tests in nix environment
         uses: ./.github/actions/end-to-end
         with:
@@ -18,7 +18,7 @@ jobs:
   template-golang:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Run end-to-end tests in nix environment
         uses: ./.github/actions/end-to-end
         with:
@@ -27,7 +27,7 @@ jobs:
   template-python:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Run end-to-end tests in nix environment
         uses: ./.github/actions/end-to-end
         with:
@@ -36,7 +36,7 @@ jobs:
   template-rust:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Run end-to-end tests in nix environment
         uses: ./.github/actions/end-to-end
         with:
@@ -45,7 +45,7 @@ jobs:
   template-web:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Run end-to-end tests in nix environment
         uses: ./.github/actions/end-to-end
         with:
