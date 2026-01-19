@@ -1,9 +1,9 @@
 {
   "$schema": "https://biomejs.dev/schemas/latest/schema.json",
-  "formatter": { "indentStyle": "space" },
   "files": {
     "includes": [] // Note: add file paths here.
   },
+  "formatter": { "indentStyle": "space" },
   "linter": {
     "rules": {
       "style": {
@@ -21,13 +21,6 @@
         },
         "useGraphqlNamingConvention": "warn",
         "useFilenamingConvention": "error"
-      }
-    }
-  },
-  "assist": {
-    "actions": {
-      "source": {
-        "organizeImports": "on"
       }
     }
   }
