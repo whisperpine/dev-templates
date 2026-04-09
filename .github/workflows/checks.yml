@@ -7,8 +7,8 @@ on:
 
 jobs:
   typos:
-    runs-on: ubuntu-latest
     name: check misspelling by typos
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: cachix/install-nix-action@v31
@@ -17,8 +17,8 @@ jobs:
         run: typos --hidden --exclude .git --format brief
 
   nix-flake-check:
-    runs-on: ubuntu-latest
     name: nix flake check
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: cachix/install-nix-action@v31
@@ -26,8 +26,8 @@ jobs:
         run: nix flake check --all-systems
 
   cocogitto:
-    runs-on: ubuntu-latest
     name: check conventional commits
+    runs-on: ubuntu-latest
     # Only run this step in the main branch.
     if: github.ref == 'refs/heads/main'
     steps:
