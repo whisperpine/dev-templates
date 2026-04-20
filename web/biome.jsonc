@@ -4,6 +4,11 @@
     "includes": [] // Note: add file paths here.
   },
   "formatter": { "indentStyle": "space" },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
   "linter": {
     "rules": {
       "style": {
