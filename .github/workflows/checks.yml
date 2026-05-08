@@ -25,6 +25,16 @@ jobs:
       - name: Run nix command
         run: nix flake check --all-systems
 
+  nixfmt-check:
+    name: nixfmt check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cachix/install-nix-action@v31
+      - name: Run nix command
+        shell: nix shell nixpkgs#nixfmt-rs --quiet --command bash {0}
+        run: nixfmt --check .
+
   cocogitto:
     name: check conventional commits
     runs-on: ubuntu-latest
