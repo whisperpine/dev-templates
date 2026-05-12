@@ -16,6 +16,28 @@ jobs:
         shell: nix shell nixpkgs#typos --quiet --command bash {0}
         run: typos --hidden --exclude .git --format brief
 
+  cocogitto:
+    name: check conventional commits
+    runs-on: ubuntu-latest
+    # Only run this step in the main branch.
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cachix/install-nix-action@v31
+      - name: Check the latest commit message
+        shell: nix shell nixpkgs#cocogitto --quiet --command bash {0}
+        run: cog check HEAD..HEAD
+
+  rumdl:
+    name: lint markdown by rumdl
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cachix/install-nix-action@v31
+      - name: Run rumdl command
+        shell: nix shell nixpkgs#rumdl --quiet --command bash {0}
+        run: rumdl check .
+
   nix-flake-check:
     name: nix flake check
     runs-on: ubuntu-latest
@@ -34,18 +56,6 @@ jobs:
       - name: Run nix command
         shell: nix shell nixpkgs#nixfmt-rs --quiet --command bash {0}
         run: nixfmt --check .
-
-  cocogitto:
-    name: check conventional commits
-    runs-on: ubuntu-latest
-    # Only run this step in the main branch.
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - uses: actions/checkout@v6
-      - uses: cachix/install-nix-action@v31
-      - name: Check the latest commit message
-        shell: nix shell nixpkgs#cocogitto --quiet --command bash {0}
-        run: cog check HEAD..HEAD
 
   trivy-scan:
     name: use trivy to scan files
