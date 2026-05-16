@@ -1,4 +1,4 @@
-# Nix flake templates for dev environments
+# Nix Flake Templates for Dev Environments
 
 Use nix flake to make dev environments reproducible
 (e.g. tools, environment variables, init scripts).
@@ -15,7 +15,7 @@ and enable the following experimental features:
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 ```
 
-## Get started
+## Get Started
 
 ```sh
 # To initialize (where `ENV` is listed in the table below):
@@ -27,7 +27,7 @@ nix flake init --template github:whisperpine/dev-templates#rust
 nix flake init --refresh --template github:whisperpine/dev-templates#rust
 ```
 
-## How to use the templates
+## How to Use the Templates
 
 Once your preferred template has been initialized,
 you can use the provided shell in two ways:
@@ -37,7 +37,7 @@ you can use the provided shell in two ways:
 - If you don't have [nix-direnv](https://github.com/nix-community/nix-direnv) installed,
   you can run `nix develop` to enter the nix-defined shell environment.
 
-## Available templates
+## Available Templates
 
 ```sh
 # list all the templates (notice items under "templates"):
