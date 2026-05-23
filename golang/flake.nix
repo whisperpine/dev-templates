@@ -4,7 +4,7 @@
   outputs =
     inputs:
     let
-      goVersion = 24; # change this to update go version
+      goVersion = 26; # change this to update go version
       supportedSystems = [
         "x86_64-linux"
         "aarch64-linux"
