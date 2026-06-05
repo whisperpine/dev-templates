@@ -1,12 +1,31 @@
 {
   "$schema": "https://biomejs.dev/schemas/latest/schema.json",
   "files": {
-    "includes": [] // Note: add file paths here.
+    "includes": [
+      "./**/*.ts",
+      "./**/*.js",
+      "./**/*.html",
+      "!!/nix/store",
+      "!!**/node_modules",
+      "!!**/dist"
+    ]
   },
-  "formatter": { "indentStyle": "space" },
+  "formatter": {
+    "indentStyle": "space"
+  },
   "css": {
     "parser": {
       "tailwindDirectives": true
+    }
+  },
+  "html": {
+    "parser": {
+      "interpolation": true
+    },
+    "formatter": {
+      "enabled": true,
+      "selfCloseVoidElements": "always",
+      "whitespaceSensitivity": "ignore"
     }
   },
   "linter": {
