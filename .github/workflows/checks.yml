@@ -10,7 +10,7 @@ jobs:
     name: check misspelling by typos
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: cachix/install-nix-action@v31
       - name: Run typos command
         shell: nix shell nixpkgs#typos --quiet --command bash {0}
@@ -22,7 +22,7 @@ jobs:
     # Only run this step in the main branch.
     if: github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: cachix/install-nix-action@v31
       - name: Check the latest commit message
         shell: nix shell nixpkgs#cocogitto --quiet --command bash {0}
@@ -32,7 +32,7 @@ jobs:
     name: lint markdown by rumdl
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: cachix/install-nix-action@v31
       - name: Run rumdl command
         shell: nix shell nixpkgs#rumdl --quiet --command bash {0}
@@ -42,7 +42,7 @@ jobs:
     name: nix flake check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: cachix/install-nix-action@v31
       - name: Run nix command
         run: nix flake check --all-systems
@@ -51,7 +51,7 @@ jobs:
     name: nixfmt check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: cachix/install-nix-action@v31
       - name: Run nix command
         shell: nix shell nixpkgs#nixfmt-rs --quiet --command bash {0}
@@ -63,7 +63,7 @@ jobs:
     permissions:
       security-events: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: cachix/install-nix-action@v31
       - name: Run Trivy vulnerability scanner in repo mode
         shell: nix shell nixpkgs#trivy --quiet --command bash {0}
