@@ -49,7 +49,7 @@
           #   ];
           #   targets = [ ];
           # };
-          rust.nightly."2026-05-28".default.override {
+          rust.nightly."2026-07-29".default.override {
             extensions = [
               "rust-src"
               "llvm-tools" # required by cargo-llvm-cov
