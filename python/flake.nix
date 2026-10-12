@@ -22,7 +22,7 @@
           default = pkgs.mkShellNoCC {
             # The Nix packages installed in the dev environment.
             packages = with pkgs; [
-              python313
+              python314
               uv # python package and project manager
               just # just a command runner
             ];
