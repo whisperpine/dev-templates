@@ -65,7 +65,6 @@
             # The Nix packages installed in the dev environment.
             packages = with pkgs; [
               rustToolchain
-              cargo-deny # linting dependencies
               cargo-edit # managing cargo dependencies
               cargo-nextest # next-generation test runner
               cargo-llvm-cov # LLVM source-based code coverage
