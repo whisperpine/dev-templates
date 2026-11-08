@@ -1,0 +1,15 @@
+[fmt]
+jsdoc = true
+sortTailwindcss = true
+sortPackageJson = true
+ignorePatterns = ["*.md"]
+
+[[fmt.overrides]]
+files = ["*.jsonc"]
+options = { trailingComma = "none" }
+
+[install]
+# Only install package versions published at least 5 days ago.
+minimumReleaseAge = 432000
+# These packages will bypass the minimum age requirement.
+minimumReleaseAgeExcludes = ["typescript"]
