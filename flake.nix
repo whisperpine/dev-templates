@@ -24,6 +24,7 @@
             packages = with pkgs; [
               typos # check misspelling
               cocogitto # conventional commit toolkit
+              zizmor # lint github actions
               prek # better pre-commit
               rumdl # markdown linter
             ];
