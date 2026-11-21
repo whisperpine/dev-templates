@@ -8,16 +8,18 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: cachix/install-nix-action@v31
+    - uses: cachix/install-nix-action@v31 # zizmor: ignore[unpinned-uses]
     - name: Run end-to-end tests in nix environment
-      shell: nix shell nixpkgs#direnv --quiet --command bash {0}
+      shell: nix shell --inputs-from . nixpkgs#direnv --quiet --command bash {0}
+      env:
+        TEMPLATE: ${{ inputs.name }}
       run: |
         # Create a directory for testing.
         temp_dir="end-to-end"
         mkdir "$temp_dir" && cd "$temp_dir"
         # Download the template files.
         echo "# ----- nix flake init ----- #"
-        nix flake init --template github:whisperpine/dev-templates#${{ inputs.name }}
+        nix flake init --template github:whisperpine/dev-templates#$TEMPLATE
         # Track the "flake.nix" file by git.
         git -C "$GITHUB_WORKSPACE" add "$temp_dir/flake.nix"
         # Test the "nix develop" command.

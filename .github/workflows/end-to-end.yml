@@ -5,48 +5,70 @@ on:
   push:
     branches: ["main"]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   template-empty:
+    name: test empty template
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - name: Run end-to-end tests in nix environment
-        uses: ./.github/actions/end-to-end
+        uses: $/.github/actions/end-to-end
         with:
           name: empty
 
   template-golang:
+    name: test golang template
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - name: Run end-to-end tests in nix environment
-        uses: ./.github/actions/end-to-end
+        uses: $/.github/actions/end-to-end
         with:
           name: golang
 
   template-python:
+    name: test python template
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - name: Run end-to-end tests in nix environment
-        uses: ./.github/actions/end-to-end
+        uses: $/.github/actions/end-to-end
         with:
           name: python
 
   template-rust:
+    name: test rust template
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - name: Run end-to-end tests in nix environment
-        uses: ./.github/actions/end-to-end
+        uses: $/.github/actions/end-to-end
         with:
           name: rust
 
   template-web:
+    name: test web template
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - name: Run end-to-end tests in nix environment
-        uses: ./.github/actions/end-to-end
+        uses: $/.github/actions/end-to-end
         with:
           name: web
